@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
-const ComponentDiv = styled.div`
+const Controls = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -51,16 +51,18 @@ export default function AuthInputs() {
 
   return (
     <div id="auth-inputs">
-      <ComponentDiv>
+      <Controls>
         <p>
-          <Label className={`label ${emailNotValid ? "invalid" : ""}`}>Email</Label>
+          {/* <label style={{ color: emailNotValid ? "#f87171" : "#6b7280" }}>Email</label> */}
+          <Label className={emailNotValid ? "invalid" : undefined}>Email</Label>
           <Input type="email" className={emailNotValid ? "invalid" : undefined} onChange={(event) => handleInputChange("email", event.target.value)} />
         </p>
         <p>
-          <Label className={`label ${emailNotValid ? "invalid" : ""}`}>Password</Label>
+          {/* <label style={{ color: emailNotValid ? "#f87171" : "#6b7280" }}>Password</label> */}
+          <Label className={emailNotValid ? "invalid" : undefined}>Password</Label>
           <Input type="password" className={passwordNotValid ? "invalid" : undefined} onChange={(event) => handleInputChange("password", event.target.value)} />
         </p>
-      </ComponentDiv>
+      </Controls>
       <div className="actions">
         <button type="button" className="text-button">
           Create a new account
